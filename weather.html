@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        function gettingJSON() {
+            var mycity = document.getElementById("cityname").value
+            document.write("Entered Matrix");
+            $.getJSON(`http://api.openweathermap.org/data/2.5/weather?q=${mycity}&APPID=00e6aebe7a97c0762b918bd0f539a2bb`, function (json) {
+                data = JSON.stringify(json);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="hero-image">
+        <div class="hero-text">
+    <form onsubmit="gettingJSON()" action="weatherpart">
+        <label for="cname">City</label>
+        <input type="text" id="cityname" name="cityname"><br><br>
+        <input type="submit">Get weather</input>
+    </form>
+
+    
+</body>
+
+</html>
